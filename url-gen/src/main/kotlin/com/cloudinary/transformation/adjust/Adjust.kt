@@ -6,8 +6,16 @@ import com.cloudinary.util.cldRanged
 
 abstract class Adjust : Action {
     companion object {
+        /**
+         * Used to define the opacity of an asset.
+         * @param level
+         */
         fun opacity(level: Int) = Opacity(level)
 
+        /**
+         * Blends the image with one or more tint colors at the intensity specified.
+         * @param values
+         */
         fun tint(vararg values: Any?) = Tint(*values)
 
         fun vibrance(level: Int? = null) = Vibrance(level)
