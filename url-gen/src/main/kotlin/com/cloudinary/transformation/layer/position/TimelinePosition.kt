@@ -13,7 +13,16 @@ class TimelinePosition private constructor(
 
         fun build() = TimelinePosition(startOffset, duration)
 
+        /**
+         * Specifies the first second to include in the video (or audio clip). This parameter is often used in conjunction with the eo (end offset) and/or du (duration) parameters.
+         * @param startOffset
+         */
         fun startOffset(startOffset: Float) = apply { this.startOffset = startOffset }
+
+        /**
+         * Sets the duration (in seconds) of a video or audio clip.
+         * @param duration
+         */
         fun duration(duration: Float) = apply { this.duration = duration }
     }
 }

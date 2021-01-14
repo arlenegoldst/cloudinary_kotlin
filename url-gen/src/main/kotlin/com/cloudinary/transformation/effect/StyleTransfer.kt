@@ -19,6 +19,11 @@ class StyleTransfer private constructor(
     }
 
     companion object {
+
+        /**
+         * The public ID of the source artwork.
+         * @param source
+         */
         fun source(source: ImageSource, options: (Builder.() -> Unit)? = null): StyleTransfer {
             val builder = Builder(source)
             options?.let { builder.it() }
@@ -108,9 +113,17 @@ class StyleTransfer private constructor(
         private var strength: Any? = null
         private var preserveColor: Boolean = false
 
+        /**
+         * Sets the strength of the style transfer.
+         * @param strength
+         */
         fun strength(strength: Int) = apply { this.strength = strength }
         fun strength(strength: Any) = apply { this.strength = strength }
 
+        /**
+         * Determines whether the original colors of the target photo are kept.
+         * @param preserveColor
+         */
         fun preserveColor(preserveColor: Boolean = true) = apply { this.preserveColor = preserveColor }
 
         override fun build(): StyleTransfer {

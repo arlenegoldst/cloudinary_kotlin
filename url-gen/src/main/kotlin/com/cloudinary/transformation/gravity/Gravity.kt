@@ -6,39 +6,80 @@ import com.cloudinary.transformation.joinWithValues
 // TODO these classes don't yet make enough sense
 abstract class Gravity {
     companion object {
+        /**
+         * South center part (bottom center).
+         * @param
+         */
         fun south() =
             CompassGravity(Compass.SOUTH)
 
+        /**
+         * South east corner (bottom right).
+         */
         fun southEast() =
             CompassGravity(Compass.SOUTH_EAST)
 
+        /**
+         * South west corner (bottom left).
+         */
         fun southWest() =
             CompassGravity(Compass.SOUTH_WEST)
 
+        /**
+         * North center part (top center).
+         * @param
+         */
         fun north() =
             CompassGravity(Compass.NORTH)
 
+        /**
+         * North east corner (top right).
+         * @param
+         */
         fun northEast() =
             CompassGravity(Compass.NORTH_EAST)
 
+        /**
+         * North west corner (top left).
+         */
         fun northWest() =
             CompassGravity(Compass.NORTH_WEST)
 
+        /**
+         * Middle east part (right).
+         * @param
+         */
         fun east() =
             CompassGravity(Compass.EAST)
 
+        /**
+         * Middle west part (left).
+         * @param
+         */
         fun west() =
             CompassGravity(Compass.WEST)
 
+        /**
+         * The center of the image.
+         * @param
+         */
         fun center() =
             CompassGravity(Compass.CENTER)
 
+        /**
+         * Detects all text elements in an image using the OCR Text Detection and Extraction add-on and uses the detected bounding box coordinates as the focus of the transformation.
+         * @param
+         */
         fun ocr(options: (OcrGravity.Builder.() -> Unit)? = null): OcrGravity {
             val builder = OcrGravity.Builder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Defines the area to keep when automatically resizing an image.
+         * @param
+         */
         fun focusOn(
             focusOn: FocusOn,
             vararg focusOnObjects: FocusOn,
@@ -49,6 +90,10 @@ abstract class Gravity {
             return builder.build()
         }
 
+        /**
+         * Automatically identifies the most interesting regions to include when resizing.
+         * @param
+         */
         fun auto(vararg objects: IAutoGravityObject, options: (AutoGravity.Builder.() -> Unit)? = null): AutoGravity {
             val builder = AutoGravity.Builder()
             builder.autoFocus(*objects)
@@ -56,6 +101,10 @@ abstract class Gravity {
             return builder.build()
         }
 
+        /**
+         * Defines the gravity based on directional values from a compass.
+         * @param
+         */
         fun compass(compass: Compass) = CompassGravity(compass)
     }
 }

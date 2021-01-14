@@ -30,12 +30,32 @@ class GradientFade private constructor(
         private var horizontalStartPoint: Any? = null
         private var verticalStartPoint: Any? = null
 
+
+        /**
+         * The strength of the fade effect. (Range: 0 to 100, Server default: 20)
+         * @param strength
+         */
         fun strength(strength: Any) = apply { this.strength = strength }
         fun strength(strength: Int) = apply { this.strength = strength }
+
+        /**
+         *
+         */
         fun type(type: String) = apply { this.type = type }
         fun type(type: GradientFadeType) = apply { this.type = type }
+
+        /**
+         * Specifies the direction to blend the 2 colors together.
+         * @param
+         */
         fun horizontalStartPoint(horizontalStartPoint: Any) = apply { this.horizontalStartPoint = horizontalStartPoint }
+
+        /**
+         * Specifies the direction to blend the 2 colors together.
+         * @param
+         */
         fun verticalStartPoint(verticalStartPoint: Any) = apply { this.verticalStartPoint = verticalStartPoint }
+
         fun horizontalStartPoint(horizontalStartPoint: Int) = apply { this.horizontalStartPoint = horizontalStartPoint }
         fun verticalStartPoint(verticalStartPoint: Int) = apply { this.verticalStartPoint = verticalStartPoint }
         fun horizontalStartPoint(horizontalStartPoint: Float) =

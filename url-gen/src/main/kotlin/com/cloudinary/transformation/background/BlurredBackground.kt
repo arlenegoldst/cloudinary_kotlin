@@ -18,9 +18,21 @@ class BlurredBackground(private val intensity: Int?, private val brightness: Int
             brightness?.cldRanged(-300, 100)
         }
 
+        /**
+         * Sets the intensity of the blur.
+         * @param intensity
+         */
         fun intensity(intensity: Int) = apply { this.intensity = intensity }
+
+        /**
+         * Sets the brightness of the background.
+         * @param brightness
+         */
         fun brightness(brightness: Int) = apply { this.brightness = brightness }
 
+        /**
+         *
+         */
         fun build() = BlurredBackground(intensity, brightness)
     }
 }

@@ -16,24 +16,41 @@ class AntiRemoval private constructor(
 ) : Action {
 
     companion object {
+        /**
+         * Defines the asset to use as the layered file in an overlay or underlay.
+         * @param
+         */
         fun source(source: LayerSource, options: (Builder.() -> Unit)? = null): AntiRemoval {
             val builder = Builder(source)
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Adds another image layer.
+         * @param
+         */
         fun image(options: (ImageBuilder.() -> Unit)? = null): AntiRemoval {
             val builder = ImageBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Overlays a remote image onto an image or video.
+         * @param
+         */
         fun fetch(options: (FetchBuilder.() -> Unit)? = null): AntiRemoval {
             val builder = FetchBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+
+        /**
+         * Adds a text layer.
+         * @param
+         */
         fun text(options: (TextBuilder.() -> Unit)? = null): AntiRemoval {
             val builder = TextBuilder()
             options?.let { builder.it() }
@@ -97,6 +114,10 @@ class AntiRemoval private constructor(
         fun level(level: Int) = level(level as Any)
         fun level(level: Any) = apply { this.level = level }
 
+        /**
+         * Sets the layer position.
+         * @param
+         */
         fun position(position: LayerPosition) = apply { this.position = position }
         fun position(position: (LayerPosition.Builder.() -> Unit)? = null) = apply {
             val builder = LayerPosition.Builder()
@@ -104,6 +125,10 @@ class AntiRemoval private constructor(
             position(builder.build())
         }
 
+        /**
+         * Defines the mode of blending to use when overlaying an image.
+         * @param
+         */
         fun blendMode(blendMode: BlendMode) = apply { this.blendMode = blendMode }
 
         override fun build(): AntiRemoval {

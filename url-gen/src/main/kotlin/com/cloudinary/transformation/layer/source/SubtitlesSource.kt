@@ -41,6 +41,10 @@ class SubtitlesSource private constructor(
         private var backgroundColor: Color? = null
         private var textColor: Color? = null
 
+        /**
+         * Sets the text style of the subtitles.
+         * @param style
+         */
         fun style(style: TextStyle) = apply { this.style = style }
         fun style(style: String) = apply { this.style = style }
         fun style(style: Expression) = apply { this.style = style }
@@ -54,10 +58,23 @@ class SubtitlesSource private constructor(
             style(builder.build())
         }
 
+        /**
+         * Sets the color of the background.
+         * @param
+         */
         fun backgroundColor(background: Color) = apply { this.backgroundColor = background }
+
+        /**
+         * Sets the color of the text.
+         * @param
+         */
         fun textColor(textColor: Color) = apply { this.textColor = textColor }
         private var transformation: Transformation? = null
 
+        f
+        /**
+         *
+         */
         fun transformation(transformation: Transformation) = apply { this.transformation = transformation }
         fun transformation(transformation: Transformation.Builder.() -> Unit) = apply {
             val builder = Transformation.Builder()

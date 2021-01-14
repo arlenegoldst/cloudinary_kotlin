@@ -9,6 +9,10 @@ class Border(
     private val type = "solid"
 
     companion object {
+        /**
+         * Adds a solid border around an image or video.
+         * @param border
+         */
         fun solid(border: (Builder.() -> Unit)? = null): Border {
             val builder = Builder()
             border?.let { builder.it() }
@@ -25,14 +29,32 @@ class Border(
         private var color: Color? = null
         private var cornerRadius: Any? = null
 
+        /**
+         * Sets the width of the border.
+         * @param width
+         */
         fun width(width: Int) = apply { this.width = width }
         fun width(width: Any) = apply { this.width = width }
+
+        /**
+         * Sets the color of the border.
+         * @param color
+         */
         fun color(color: String) = apply { this.color = Color.parseString(color) }
         fun color(color: Color) = apply { this.color = color }
 
         // TODO: Corner Radius inside Border action is a temp suggestions:
+        /**
+         * Rounds all four corners of an asset by the same pixel radius.
+         * @param pixels
+         */
         fun cornerRadius(vararg pixels: Int) = apply { this.cornerRadius = RoundCorners.byRadius(*pixels) }
         fun cornerRadius(vararg pixels: Any) = apply { this.cornerRadius = RoundCorners.byRadius(*pixels) }
+
+        /**
+         * Delivers the asset as a rounded circle or oval shape.
+         * @param
+         */
         fun maxCornerRadius() = apply { this.cornerRadius = RoundCorners.max() }
 
         override fun build(): Border {

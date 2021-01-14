@@ -43,21 +43,40 @@ class LayerPosition private constructor(
 
         fun build() = LayerPosition(x, y, gravity, tiled, allowOverflow)
 
+        /**
+         * Defines the gravity based on directional values from a compass.
+         * @param
+         */
         fun gravity(gravity: CompassGravity) = apply {
             this.gravity = gravity
         }
 
+        /**
+         * Defines the area to keep when automatically resizing an image.
+         * @param
+         */
         fun gravity(gravity: FocusOnGravity) = apply {
             this.gravity = gravity
         }
 
+        /**
+         * A qualifier that adjusts the starting location or offset of the corresponding transformation action.
+         * @param
+         */
         fun x(x: Int) = apply { this.x = x }
         fun x(x: Any) = apply { this.x = x }
         fun y(y: Int) = apply { this.y = y }
         fun y(y: Any) = apply { this.y = y }
 
+        /**
+         * Tiles the added overlay over the entire image.
+         * @param
+         */
         fun tiled() = apply { this.tiled = true }
 
+        /**
+         *
+         */
         fun allowOverflow(allowOverflow: Boolean = true) = apply {
             this.allowOverflow = allowOverflow
         }

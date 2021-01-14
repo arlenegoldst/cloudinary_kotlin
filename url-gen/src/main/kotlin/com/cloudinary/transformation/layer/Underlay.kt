@@ -21,24 +21,39 @@ class Underlay private constructor(
     }
 
     companion object {
+        /**
+         * Applies an image layer under the base image.
+         * @param
+         */
         fun image(options: (ImageBuilder.() -> Unit)? = null): Underlay {
             val builder = ImageBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * .
+         * @param
+         */
         fun fetch(options: (FetchBuilder.() -> Unit)? = null): Underlay {
             val builder = FetchBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Adds a text underlay to an image or video.
+         * @param
+         */
         fun text(options: (TextBuilder.() -> Unit)? = null): Underlay {
             val builder = TextBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         *
+         */
         fun source(source: LayerSource, options: (Builder.() -> Unit)? = null): Underlay {
             val builder = Builder(source)
             options?.let { builder.it() }
@@ -96,6 +111,10 @@ class Underlay private constructor(
         protected var blendMode: BlendMode? = null
         protected var source: LayerSource? = null
 
+        /**
+         * The position of the underlay with respect to the base image.
+         * @param
+         */
         fun position(position: LayerPosition) = apply { this.position = position }
         fun position(position: (LayerPosition.Builder.() -> Unit)? = null) = apply {
             val builder = LayerPosition.Builder()
@@ -103,6 +122,10 @@ class Underlay private constructor(
             position(builder.build())
         }
 
+        /**
+         * Defines the mode of blending to use when underlaying an image.
+         * @param
+         */
         fun blendMode(blendMode: BlendMode) = apply { this.blendMode = blendMode }
 
         override fun build(): Underlay {

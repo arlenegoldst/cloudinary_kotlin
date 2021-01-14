@@ -19,30 +19,48 @@ class Overlay private constructor(
             return builder.build()
         }
 
+        /**
+         * Overlays the specified video on a base video.
+         */
         fun video(options: (VideoBuilder.() -> Unit)? = null): Overlay {
             val builder = VideoBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Overlays a remote image onto an image or video.
+         * @param
+         */
         fun fetch(options: (FetchBuilder.() -> Unit)? = null): Overlay {
             val builder = FetchBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Adds a text layer.
+         * @param
+         */
         fun text(options: (TextBuilder.() -> Unit)? = null): Overlay {
             val builder = TextBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Adds subtitles to a video.
+         */
         fun subtitles(options: (SubtitlesBuilder.() -> Unit)? = null): Overlay {
             val builder = SubtitlesBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Defines the asset to use as the layered file in an overlay or underlay.
+         * @param
+         */
         fun source(source: LayerSource, options: (Builder.() -> Unit)? = null): Overlay {
             val builder = Builder(source)
             options?.let { builder.it() }
@@ -130,6 +148,10 @@ class Overlay private constructor(
             position(builder.build())
         }
 
+        /**
+         * Defines the mode of blending to use when overlaying an image.
+         * @param
+         */
         fun blendMode(blendMode: BlendMode) = apply { this.blendMode = blendMode }
 
         override fun build(): Overlay {

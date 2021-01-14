@@ -10,8 +10,16 @@ import java.beans.Expression
 abstract class Reshape : Action {
 
     companion object {
+        /**
+         * Skews an image according to the two specified values in degrees. Negative values skew an image in the opposite direction.
+         * @param skewX
+         */
         fun shear(skewX: Int, skewY: Int) = shear(skewX as Any, skewY as Any)
 
+        /**
+         * * Skews an image according to the two specified values in degrees. Negative values skew an image in the opposite direction.
+         * @param skewY
+         */
         fun shear(skewX: Any, skewY: Any): Shear {
             val builder = Shear.Builder()
             builder.skewX(skewX)
@@ -26,8 +34,16 @@ abstract class Reshape : Action {
             return builder.build()
         }
 
+        /**
+         * Distorts an image to a new shape by either adjusting its corners or by warping it into an arc.
+         * @param points
+         */
         fun distort(points: List<Int>) = Distort(points)
 
+        /**
+         * Distorts an image, or text overlay, to an arc shape.
+         * @param degrees
+         */
         fun distortArc(degrees: String) = DistortArc(degrees)
         fun distortArc(degrees: Int) = DistortArc(degrees)
         fun distortArc(degrees: Expression) = DistortArc(degrees)
@@ -39,6 +55,10 @@ abstract class Reshape : Action {
             return builder.build()
         }
 
+
+        /**
+         *
+         */
         fun cutByImage(source: ImageSource, options: (CutByImage.Builder.() -> Unit)? = null) =
             cutByImage(source as LayerSource, options)
 

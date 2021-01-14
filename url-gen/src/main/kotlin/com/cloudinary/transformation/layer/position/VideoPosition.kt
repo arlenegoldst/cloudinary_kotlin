@@ -18,10 +18,18 @@ class VideoPosition private constructor(
 
         fun build() = VideoPosition(x, y, gravity)
 
+        /**
+         * Defines the gravity based on directional values from a compass.
+         * @param
+         */
         fun gravity(gravity: CompassGravity) = apply {
             this.gravity = gravity
         }
 
+        /**
+         * A qualifier that adjusts the starting location or offset of the corresponding transformation action.
+         * *@param
+         */
         fun x(x: Int) = apply { this.x = x }
         fun x(x: Any) = apply { this.x = x }
         fun y(y: Int) = apply { this.y = y }

@@ -10,6 +10,10 @@ class Variable private constructor(
     private val prefix: String? = null
 
 ) : Action {
+
+    /**
+     * Serializes to string.
+     */
     override fun toString(): String {
         val prefixStr = prefix?.let { "$prefix:" } ?: ""
         val valueStr = when (value) {
@@ -25,6 +29,10 @@ class Variable private constructor(
     }
 
     companion object {
+
+        /**
+         *
+         */
         fun set(name: String, value: Any, options: (Builder.() -> Unit)? = null) = build(name, value, options)
         fun set(name: String, value: String, options: (Builder.() -> Unit)? = null) = build(name, value, options)
         fun set(name: String, value: Int, options: (Builder.() -> Unit)? = null) = build(name, value, options)

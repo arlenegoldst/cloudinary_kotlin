@@ -28,6 +28,11 @@ class TextSource internal constructor(
     }
 
     companion object {
+
+        /**
+         * Adds a text overlay to an image or video.
+         * @param text
+         */
         fun text(text: String, options: Builder.() -> Unit): TextSource {
             val builder = Builder(text)
             builder.options()
@@ -47,6 +52,10 @@ class TextSource internal constructor(
         private var backgroundColor: Color? = null
         private var textColor: Color? = null
 
+        /**
+         * Sets the text style.
+         * @param
+         */
         fun style(style: TextStyle) = apply { this.style = style }
         fun style(style: String) = apply { this.style = style }
         fun style(style: Expression) = apply { this.style = style }
@@ -60,6 +69,10 @@ class TextSource internal constructor(
             style(builder.build())
         }
 
+        /**
+         * Sets the color of the background.
+         * @param
+         */
         fun backgroundColor(background: Color) = apply { this.backgroundColor = background }
         fun textColor(textColor: Color) = apply { this.textColor = textColor }
         private var transformation: Transformation? = null

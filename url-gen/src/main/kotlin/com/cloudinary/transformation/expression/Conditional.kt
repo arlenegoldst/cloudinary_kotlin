@@ -15,6 +15,11 @@ class Conditional private constructor(
     }
 
     companion object {
+
+        /**
+         * Applies a transformation only if a specified condition is met.
+         * @param expression
+         */
         fun ifCondition(
             expression: String,
             transformation: Transformation,
@@ -25,6 +30,10 @@ class Conditional private constructor(
             return builder.build()
         }
 
+        /**
+         * Applies a transformation only if a specified condition is met.
+         * @param expression
+         */
         fun ifCondition(
             expression: Expression,
             transformation: Transformation,
@@ -35,6 +44,10 @@ class Conditional private constructor(
             return builder.build()
         }
 
+        /**
+         * Applies a transformation only if a specified condition is met.
+         * @param expression
+         */
         fun ifCondition(
             expression: String,
             transformation: String,
@@ -51,6 +64,9 @@ class Conditional private constructor(
         private var transformation: Any? = null
         private var otherwise: Any? = null
 
+        /**
+         *
+         */
         fun expression(expression: Expression) = apply { this.expression = expression }
         fun expression(expression: String) = apply { this.expression = expression }
         fun transformation(transformation: Transformation) = apply { this.transformation = transformation }
