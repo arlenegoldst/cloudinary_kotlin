@@ -13,24 +13,39 @@ class Cutout private constructor(
 ) : Action {
 
     companion object {
+        /**
+         * The source asset, can be an image or video.
+         * @param
+         */
         fun source(source: LayerSource, options: (Builder.() -> Unit)? = null): Cutout {
             val builder = Builder(source)
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Overlays an image on the base image or video.
+         * @param
+         */
         fun image(options: (ImageBuilder.() -> Unit)? = null): Cutout {
             val builder = ImageBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Overlays a remote image onto an image or video.
+         */
         fun fetch(options: (FetchBuilder.() -> Unit)? = null): Cutout {
             val builder = FetchBuilder()
             options?.let { builder.it() }
             return builder.build()
         }
 
+        /**
+         * Adds a text overlay to an image or video.
+         * @param
+         */
         fun text(options: (TextBuilder.() -> Unit)? = null): Cutout {
             val builder = TextBuilder()
             options?.let { builder.it() }

@@ -13,6 +13,9 @@ class Overlay private constructor(
     private val blendMode: BlendMode? = null
 ) : Action {
     companion object {
+        /**
+         * Overlays an image on the base image or video.
+         */
         fun image(options: (ImageBuilder.() -> Unit)? = null): Overlay {
             val builder = ImageBuilder()
             options?.let { builder.it() }
@@ -140,7 +143,14 @@ class Overlay private constructor(
         protected var timelinePosition: TimelinePosition? = null
         protected var source: LayerSource? = null
 
+        /**
+         * The position of the concatenated video.
+         */
         fun timelinePosition(timelinePosition: TimelinePosition) = apply { this.timelinePosition = timelinePosition }
+
+        /**
+         *
+         */
         fun position(position: LayerPosition) = apply { this.position = position }
         fun position(position: (LayerPosition.Builder.() -> Unit)? = null) = apply {
             val builder = LayerPosition.Builder()

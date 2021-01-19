@@ -6,6 +6,9 @@ class RoundCorners(private val values: List<Any>) : Action {
     }
 
     companion object {
+        /**
+         * Sets the corner radius.
+         */
         fun byRadius(vararg pixels: Int) = RoundCorners(pixels.toList())
         fun byRadius(vararg pixels: Any) = RoundCorners(pixels.toList())
         fun max() = RoundCorners(listOf("max"))

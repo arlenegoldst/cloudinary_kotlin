@@ -73,7 +73,8 @@ class SubtitlesSource private constructor(
 
         f
         /**
-         *
+         * Gets the transformation.
+         * @param
          */
         fun transformation(transformation: Transformation) = apply { this.transformation = transformation }
         fun transformation(transformation: Transformation.Builder.() -> Unit) = apply {

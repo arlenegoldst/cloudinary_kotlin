@@ -111,6 +111,9 @@ class AntiRemoval private constructor(
         protected var blendMode: BlendMode? = null
         protected var level: Any? = null
 
+        /**
+         *
+         */
         fun level(level: Int) = level(level as Any)
         fun level(level: Any) = apply { this.level = level }
 

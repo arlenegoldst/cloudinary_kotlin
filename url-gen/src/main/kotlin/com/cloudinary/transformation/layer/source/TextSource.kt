@@ -74,9 +74,16 @@ class TextSource internal constructor(
          * @param
          */
         fun backgroundColor(background: Color) = apply { this.backgroundColor = background }
+
+        /**
+         * 
+         */
         fun textColor(textColor: Color) = apply { this.textColor = textColor }
         private var transformation: Transformation? = null
 
+        /**
+         * Defines how to manipulate and transform images.
+         */
         fun transformation(transformation: Transformation) = apply { this.transformation = transformation }
         fun transformation(transformation: Transformation.Builder.() -> Unit) = apply {
             val builder = Transformation.Builder()

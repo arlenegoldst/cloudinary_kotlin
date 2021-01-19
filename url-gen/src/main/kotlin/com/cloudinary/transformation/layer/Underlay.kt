@@ -32,7 +32,7 @@ class Underlay private constructor(
         }
 
         /**
-         * .
+         * Overlays a remote image onto an image or video.
          * @param
          */
         fun fetch(options: (FetchBuilder.() -> Unit)? = null): Underlay {

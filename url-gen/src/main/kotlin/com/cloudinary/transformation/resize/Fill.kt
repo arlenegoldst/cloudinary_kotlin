@@ -19,6 +19,10 @@ class Fill(
     class Builder : BaseBuilder<Builder>() {
         private var gravity: Gravity? = null
 
+        /**
+         * Defines the focal gravity for certain methods of cropping.
+         * @param
+         */
         fun gravity(gravity: Gravity) = apply {
             this.gravity = gravity
         }

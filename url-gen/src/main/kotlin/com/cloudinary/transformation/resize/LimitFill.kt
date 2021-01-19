@@ -19,6 +19,9 @@ class LimitFill(
     class Builder : BaseBuilder<Builder>() {
         private var gravity: Gravity? = null
 
+        /**
+         * Defines the focal gravity for certain methods of cropping.
+         */
         fun gravity(gravity: Gravity) = apply {
             this.gravity = gravity
         }

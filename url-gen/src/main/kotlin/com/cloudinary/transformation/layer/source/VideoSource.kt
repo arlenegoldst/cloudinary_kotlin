@@ -29,6 +29,9 @@ class VideoSource internal constructor(
     class Builder(private val publicId: String) {
         private var transformation: Transformation? = null
 
+        /**
+         * Defines how to manipulate and transform videos.
+         */
         fun transformation(transformation: Transformation) = apply { this.transformation = transformation }
         fun transformation(transformation: Transformation.Builder.() -> Unit) = apply {
             val builder = Transformation.Builder()
